@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Okt 10. 10:35
+-- Létrehozás ideje: 2023. Okt 17. 10:38
 -- Kiszolgáló verziója: 10.4.20-MariaDB
 -- PHP verzió: 7.3.29
 
@@ -41,6 +41,30 @@ INSERT INTO `altalanos_iskola` (`id_altalanos_iskola`, `altalanos_iskola_neve`, 
 (1, 'Csillagvár Általános Iskola', 'Kocka U. 14'),
 (2, 'Napsugár Általános Iskola', 'Gyöngyvirág U. 4'),
 (3, 'Tóparti Általános Iskola', 'Strand út 23.');
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `kozepiskola`
+--
+
+CREATE TABLE `kozepiskola` (
+  `id_kozepiskola` tinyint(3) UNSIGNED NOT NULL,
+  `kozepiskola_neve` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
+  `kozepiskola_cime` varchar(255) COLLATE utf8_hungarian_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `tanulo`
+--
+
+CREATE TABLE `tanulo` (
+  `id_tanulo` tinyint(3) UNSIGNED NOT NULL,
+  `tanulo_neve` varchar(255) COLLATE utf8_hungarian_ci NOT NULL,
+  `id_alt_isk` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- Indexek a kiírt táblákhoz
